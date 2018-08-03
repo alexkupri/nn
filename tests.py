@@ -5,7 +5,6 @@ import numpy as np
 import nn
 import opt
 import aux
-<<<<<<< HEAD
 import allpass_rules
 import players
 import random
@@ -14,11 +13,9 @@ reload(opt)
 reload(aux)
 reload(allpass_rules)
 reload(players)
-=======
 reload(nn)
 reload(opt)
 reload(aux)
->>>>>>> origin/master
 
 def test_Derivatives():
 	a1=np.array([[0.0]])
@@ -118,10 +115,8 @@ def test_WholeOpt():
 	test_optRsOrt()
 	test_optRsNewtonOrt()
 	test_optRsDefault()
-<<<<<<< HEAD
 
 def test_gamePlay(cards):
 	pl=[players.FastRandomPlayer() for j in xrange(3)]
 	allpass_rules.play(pl,cards,True)
-=======
->>>>>>> origin/master
+
