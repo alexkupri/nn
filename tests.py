@@ -120,3 +120,15 @@ def test_gamePlay(cards):
 	pl=[players.FastRandomPlayer() for j in xrange(3)]
 	allpass_rules.play(pl,cards,True)
 
+def test_gamePlayState(cards,n):
+	pl=[players.FastRandomPlayer() for j in xrange(3)]
+	superplayer=players.Player()
+	pl[n]=superplayer
+	allpass_rules.play(pl,cards,True)
+	for v in superplayer.vectors:
+		print aux.vectorToText(v)
+
+def test_deal():
+	a=range(32)
+	random.shuffle(a)
+	return a

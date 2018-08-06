@@ -1,6 +1,8 @@
 #
 #Staff for testing and output
 
+import allpass_rules
+
 import numpy as np
 
 #class intended to save history of calculation and safely call the function
@@ -113,3 +115,31 @@ def __OutputNN__(layers,matrices,derivative_matrices,vectors,dy,derivatives_befo
 #Debug staff
 def regularGrid():
 	return np.array([[j/10 for j in xrange(100)] ,[j%10 for j in xrange(100)]])*0.2-0.9
+
+#Necessary to interpret state vectors of allpass players
+def suitset(vector):
+	s='[ '
+	for j in xrange(8):
+		if vector[j]>0:
+			s=s+str(j+7)+' '
+	return s+'] '
+	
+def vectorToText(vector):
+	vals=46
+	assert len(vector)==vals*4
+	res=''
+	for j in xrange(4):
+		subvect=vector[vals*j:vals*(j+1)]
+		res=(res+allpass_rules.suits[j]+' : '+
+			'cards='+suitset(subvect[0:8])+
+			'discarded='+suitset(subvect[8:16])+
+			'looser_card='+suitset(subvect[16:24])+
+			'next_discarded='+suitset(subvect[24:32])+
+			'prev_discarded='+suitset(subvect[32:40])+
+			'next_donthave='+str(subvect[40])+
+			' prev_donthave='+str(subvect[41])+
+			' suit_av='+str(subvect[42])+
+			' move='+str(subvect[43])+
+			' step='+str(subvect[44])+
+			' strict='+str(subvect[45])+'\n')
+	return res+'\n'

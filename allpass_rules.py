@@ -12,11 +12,14 @@ GAMEOVER=4
 NOTRUMP=-1
 playerNames=['X','Y','Z','TALON']
 
+def cards_to_str(cards):
+	return ''.join([deck[c]+' ' for c in cards])
+
 #State of the game (gamerules), whose turn and which cards can be played
 #Whose turn can be detected by variable curplayer
 class Gameplay:
 	def __init__(self,verbose):
-		self.move,self.step,self.curplayer,self.trump=0,0,3,NOTRUMP
+		self.move,self.step,self.curplayer,self.trump,self.loosecard=0,0,3,NOTRUMP,NOTRUMP
 		self.verbose,self.line=verbose,''
 		self.discarded=[]
 		self.curmoves=[0,0,0,0]
@@ -30,6 +33,16 @@ class Gameplay:
 				possible_cards=possible_same_cards
 		return possible_cards
 	def makeMove(self,card):
+		if self.loosecard==NOTRUMP:
+			if self.move<2:
+				assign=self.curplayer!=TALON and suit(card)==suit(self.trump)
+			else:
+				assign=True
+		else:
+			assign=(suit(card)==suit(self.loosecard) and 
+					rank(card)>rank(self.loosecard))
+		if assign:
+			self.loosecard,self.looser=card,self.curplayer	
 		self.line=self.line+playerNames[self.curplayer]+':'+deck[card]+' '
 		self.curmoves[self.curplayer]=card
 		self.discarded.append(card)
@@ -38,17 +51,11 @@ class Gameplay:
 		if self.step==1:
 			self.trump=card
 		elif self.step==4 or (self.step==3 and self.move>=2):
-			for j in xrange(3):
-				if suit(self.curmoves[j])==suit(self.trump):
-					looser,loosecard=j,self.curmoves[j]
-			for j in xrange(3):
-				if suit(self.curmoves[j])==suit(loosecard) and rank(self.curmoves[j])>rank(loosecard):
-					looser,loosecard=j,self.curmoves[j]
 			if self.verbose:
-				print self.line+' ('+playerNames[looser]+')'
-			self.bids[looser]=self.bids[looser]+1
+				print self.line+' ('+playerNames[self.looser]+')'
+			self.bids[self.looser]=self.bids[self.looser]+1
 			self.move=self.move+1
-			self.step,self.line,self.trump=0,'',NOTRUMP
+			self.step,self.line,self.trump,self.loosecard=0,'',NOTRUMP,NOTRUMP
 			if self.move==1:
 				self.curplayer=TALON
 			elif self.move==2:
@@ -56,9 +63,10 @@ class Gameplay:
 			elif self.move>=10:
 				if self.verbose:
 					print ''.join([playerNames[j]+' got '+str(self.bids[j])+' bid(s). ' for j in xrange(3)])
+					print ''
 				self.curplayer=GAMEOVER
 			else:
-				self.curplayer=looser
+				self.curplayer=self.looser
 
 def play(pl,cards,verbose=False):
 	pcards=[cards[0:10],cards[10:20],cards[20:30]]
@@ -79,5 +87,5 @@ def play(pl,cards,verbose=False):
 			card=pl[curplayer].getCard(game)
 		for j in xrange(3):
 			if j!=curplayer:
-				pl[j].move(curplayer,card)
+				pl[j].move(game,card)
 		game.makeMove(card)

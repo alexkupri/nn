@@ -1,0 +1,162 @@
+# This is short description of the game, which is printed in console when verbosity>=1
+
+X : ./cheburator.py
+Y : ./cheburator.py
+Z : ./cheburator.py
+Deck: 12S 14C 12C 9S 7C 10C 9H 13H 8D 8C 9C 13D 14S 7D 10D 11S 14D 12H 7S 14H 11C 10S 9D 13C 10H 7H 12D 8S 11D 8H 13S 11H 
+X: 13H 9H 8D 14C 12C 10C 8C 7C 12S 9S 
+Y: 14H 12H 14D 13D 10D 7D 9C 14S 11S 7S 
+Z: 10H 8H 7H 12D 11D 9D 13C 11C 10S 8S 
+TALON:13S X:12S Y:14S Z:10S  (Y)
+TALON:11H X:9H Y:12H Z:10H  (Y)
+X:14C Y:9C Z:11C  (X)
+X:12C Y:13D Z:13C  (Z)
+Z:9D X:8D Y:7D  (Z)
+Z:7H X:13H Y:14H  (Y)
+Y:10D Z:12D X:9S  (Z)
+Z:8S X:7C Y:11S  (Y)
+Y:14D Z:11D X:10C  (Y)
+Y:7S Z:8H X:8C  (Y)
+X got 1 bid(s). Y got 6 bid(s). Z got 3 bid(s). 
+
+#This is interaction between the programs in the same game.
+#It is written in the file log.txt when verbosity>=2
+
+11:13:57.687188 Starting player X with commandline: ./cheburator.py
+11:13:57.689335 Starting player Y with commandline: ./cheburator.py
+11:13:57.692262 Starting player Z with commandline: ./cheburator.py
+11:13:57.693933 Sending to player X line:12S 14C 12C 9S 7C 10C 9H 13H 8D 8C 
+11:13:57.694057 Sending to player X line:0
+11:13:57.694182 Sending to player Y line:9C 13D 14S 7D 10D 11S 14D 12H 7S 14H 
+11:13:57.694259 Sending to player Y line:1
+11:13:57.696858 Sending to player Z line:11C 10S 9D 13C 10H 7H 12D 8S 11D 8H 
+11:13:57.696988 Sending to player Z line:2
+11:13:57.697114 Sending to player X line:13S
+11:13:57.697193 Sending to player Y line:13S
+11:13:57.697261 Sending to player Z line:13S
+11:13:57.697335 Requesting move from player X
+11:13:57.705803 Player X responded:12S
+11:13:57.705891 Sending to player Y line:12S
+11:13:57.705940 Sending to player Z line:12S
+11:13:57.705985 Requesting move from player Y
+11:13:57.712760 Player Y responded:14S
+11:13:57.712884 Sending to player X line:14S
+11:13:57.712970 Sending to player Z line:14S
+11:13:57.713050 Requesting move from player Z
+11:13:57.714252 Player Z responded:10S
+11:13:57.714331 Sending to player X line:10S
+11:13:57.714389 Sending to player Y line:10S
+11:13:57.714493 Sending to player X line:11H
+11:13:57.714552 Sending to player Y line:11H
+11:13:57.714619 Sending to player Z line:11H
+11:13:57.714683 Requesting move from player X
+11:13:57.714752 Player X responded:9H
+11:13:57.714858 Sending to player Y line:9H
+11:13:57.714961 Sending to player Z line:9H
+11:13:57.715113 Requesting move from player Y
+11:13:57.715898 Player Y responded:12H
+11:13:57.716118 Sending to player X line:12H
+11:13:57.716239 Sending to player Z line:12H
+11:13:57.716377 Requesting move from player Z
+11:13:57.716523 Player Z responded:10H
+11:13:57.716596 Sending to player X line:10H
+11:13:57.716694 Sending to player Y line:10H
+11:13:57.716975 Requesting move from player X
+11:13:57.717116 Player X responded:14C
+11:13:57.717208 Sending to player Y line:14C
+11:13:57.717288 Sending to player Z line:14C
+11:13:57.717403 Requesting move from player Y
+11:13:57.717506 Player Y responded:9C
+11:13:57.717558 Sending to player X line:9C
+11:13:57.717604 Sending to player Z line:9C
+11:13:57.717665 Requesting move from player Z
+11:13:57.717737 Player Z responded:11C
+11:13:57.717775 Sending to player X line:11C
+11:13:57.717816 Sending to player Y line:11C
+11:13:57.717888 Requesting move from player X
+11:13:57.717945 Player X responded:12C
+11:13:57.717984 Sending to player Y line:12C
+11:13:57.718019 Sending to player Z line:12C
+11:13:57.718064 Requesting move from player Y
+11:13:57.718193 Player Y responded:13D
+11:13:57.718245 Sending to player X line:13D
+11:13:57.718325 Sending to player Z line:13D
+11:13:57.718441 Requesting move from player Z
+11:13:57.718617 Player Z responded:13C
+11:13:57.718733 Sending to player X line:13C
+11:13:57.718839 Sending to player Y line:13C
+11:13:57.719047 Requesting move from player Z
+11:13:57.719167 Player Z responded:9D
+11:13:57.719227 Sending to player X line:9D
+11:13:57.719293 Sending to player Y line:9D
+11:13:57.719410 Requesting move from player X
+11:13:57.719507 Player X responded:8D
+11:13:57.719573 Sending to player Y line:8D
+11:13:57.719640 Sending to player Z line:8D
+11:13:57.719732 Requesting move from player Y
+11:13:57.719894 Player Y responded:7D
+11:13:57.719963 Sending to player X line:7D
+11:13:57.720038 Sending to player Z line:7D
+11:13:57.720210 Requesting move from player Z
+11:13:57.720313 Player Z responded:7H
+11:13:57.720376 Sending to player X line:7H
+11:13:57.720449 Sending to player Y line:7H
+11:13:57.720581 Requesting move from player X
+11:13:57.720693 Player X responded:13H
+11:13:57.720850 Sending to player Y line:13H
+11:13:57.720958 Sending to player Z line:13H
+11:13:57.721094 Requesting move from player Y
+11:13:57.721247 Player Y responded:14H
+11:13:57.721331 Sending to player X line:14H
+11:13:57.721373 Sending to player Z line:14H
+11:13:57.721454 Requesting move from player Y
+11:13:57.721508 Player Y responded:10D
+11:13:57.721541 Sending to player X line:10D
+11:13:57.721599 Sending to player Z line:10D
+11:13:57.721656 Requesting move from player Z
+11:13:57.721726 Player Z responded:12D
+11:13:57.721767 Sending to player X line:12D
+11:13:57.721809 Sending to player Y line:12D
+11:13:57.721870 Requesting move from player X
+11:13:57.721924 Player X responded:9S
+11:13:57.721962 Sending to player Y line:9S
+11:13:57.721998 Sending to player Z line:9S
+11:13:57.722073 Requesting move from player Z
+11:13:57.722132 Player Z responded:8S
+11:13:57.722166 Sending to player X line:8S
+11:13:57.722205 Sending to player Y line:8S
+11:13:57.722263 Requesting move from player X
+11:13:57.722316 Player X responded:7C
+11:13:57.722353 Sending to player Y line:7C
+11:13:57.722390 Sending to player Z line:7C
+11:13:57.722440 Requesting move from player Y
+11:13:57.722496 Player Y responded:11S
+11:13:57.722529 Sending to player X line:11S
+11:13:57.722569 Sending to player Z line:11S
+11:13:57.722650 Requesting move from player Y
+11:13:57.722704 Player Y responded:14D
+11:13:57.722737 Sending to player X line:14D
+11:13:57.722776 Sending to player Z line:14D
+11:13:57.722832 Requesting move from player Z
+11:13:57.722902 Player Z responded:11D
+11:13:57.722943 Sending to player X line:11D
+11:13:57.722985 Sending to player Y line:11D
+11:13:57.723044 Requesting move from player X
+11:13:57.723098 Player X responded:10C
+11:13:57.723133 Sending to player Y line:10C
+11:13:57.723167 Sending to player Z line:10C
+11:13:57.723238 Requesting move from player Y
+11:13:57.723289 Player Y responded:7S
+11:13:57.723322 Sending to player X line:7S
+11:13:57.723361 Sending to player Z line:7S
+11:13:57.723417 Requesting move from player Z
+11:13:57.723481 Player Z responded:8H
+11:13:57.723520 Sending to player X line:8H
+11:13:57.723561 Sending to player Y line:8H
+11:13:57.723620 Requesting move from player X
+11:13:57.723669 Player X responded:8C
+11:13:57.723705 Sending to player Y line:8C
+11:13:57.723741 Sending to player Z line:8C
+11:13:57.723840 Terminating player X
+11:13:57.723903 Terminating player Y
+11:13:57.723971 Terminating player Z
